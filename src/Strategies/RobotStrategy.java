@@ -4,7 +4,7 @@ import interfaces.Humanoid;
 
 public class RobotStrategy implements Humanoid {
 
-    private int hp = 60;
+    private int hp = 30;
 
     private int aimDamage = 0;
     private int baseShootDamage = 5;
@@ -53,7 +53,7 @@ public class RobotStrategy implements Humanoid {
 
     @Override
     public void aim() {
-        System.out.println(ANSI_PURPLE + "Терминатор: выцеливаю жалкого человечка" + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "Терминатор: Выцеливаю жалкого человечка" + ANSI_RESET);
         aimDamage += 2;
     }
 
