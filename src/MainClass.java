@@ -1,6 +1,7 @@
 import Strategies.HumanStrategy;
 import Strategies.RobotStrategy;
 import classes.Context;
+import classes.RandomExplosion;
 import classes.RandomMethod;
 
 import java.io.BufferedReader;
@@ -28,13 +29,18 @@ public class MainClass {
 
             humanContext.setContextStrategy(new RobotStrategy());
             robotContext.setContextStrategy(new HumanStrategy());
-
+            RandomExplosion randomExplosion = new RandomExplosion();
+            randomExplosion.registerObserver(humanContext);
+            randomExplosion.registerObserver(robotContext);
             for (; ; ) {
                 RandomMethod.getRandoomMethod(humanContext, robotContext);
                 if (robotContext.getCurrentHp() <= 0)
                     break;
                 RandomMethod.getRandoomMethod(robotContext, humanContext);
                 if (humanContext.getCurrentHp() <= 0)
+                    break;
+                randomExplosion.generateRandomEvent();
+                if (humanContext.getCurrentHp() <= 0 || robotContext.getCurrentHp() <= 0)
                     break;
             }
     }

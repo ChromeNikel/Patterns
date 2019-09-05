@@ -9,7 +9,7 @@ public class HumanStrategy implements Humanoid {
     private static final String ANSI_RESET = "\u001B[0m";
     private static final String ANSI_GREEN = "\u001B[32m";
 
-    private int hp = 30;
+    private int hp = 40;
 
     private int aimDamage = 0;
     private int baseShootDamage = 2;
@@ -97,5 +97,10 @@ public class HumanStrategy implements Humanoid {
         System.out.println(ANSI_BLUE + "Сара Конор: Сейчас расплющим железяку" + ANSI_RESET);
         System.out.println(ANSI_RED + "Сара Конор наносит 7 урона" + ANSI_RESET);
         return 7;
+    }
+
+    @Override
+    public String getName() {
+        return "Сара Конор";
     }
 }

@@ -94,4 +94,9 @@ public class RobotStrategy implements Humanoid {
     public int pushIntoPress() {
         return 0;
     }
+
+    @Override
+    public String getName() {
+        return "Терминатор";
+    }
 }

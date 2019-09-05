@@ -28,4 +28,6 @@ public interface Humanoid {
     int getCurrentHp();
 
     int pushIntoPress();
+
+    String getName();
 }

@@ -1,8 +1,10 @@
 package classes;
 
 import interfaces.Humanoid;
+import interfaces.Observer;
+import interfaces.Subject;
 
-public class Context implements Humanoid {
+public class Context implements Humanoid, Observer {
 
     private Humanoid contextStrategy;
 
@@ -69,5 +71,15 @@ public class Context implements Humanoid {
     @Override
     public int pushIntoPress() {
         return contextStrategy.pushIntoPress();
+    }
+
+    @Override
+    public void update(int damage) {
+        contextStrategy.decreaseHp(damage);
+    }
+
+    @Override
+    public String getName() {
+        return contextStrategy.getName();
     }
 }
