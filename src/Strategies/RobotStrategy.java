@@ -1,5 +1,6 @@
 package Strategies;
 
+import Weapon.RangedWeapon;
 import interfaces.Humanoid;
 
 public class RobotStrategy implements Humanoid {
@@ -8,6 +9,7 @@ public class RobotStrategy implements Humanoid {
 
     private int aimDamage = 0;
     private int baseShootDamage = 5;
+    private int baseKickDamage = 5;
 
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_PURPLE = "\u001B[35m";
@@ -35,10 +37,22 @@ public class RobotStrategy implements Humanoid {
     }
 
     @Override
+    public void checkRangedWeapon() {
+        System.out.println(ANSI_PURPLE + "Терминатор: Теперь я вооружен своей яростью.\nУРОН УДВАИВАЕТСЯ!!!" + ANSI_RESET);
+    }
+
+    @Override
+    public void setRangedWeapon(RangedWeapon rangedWeapon) {
+        baseShootDamage *= 2;
+        baseKickDamage *= 2;
+        aimDamage *= 2;
+    }
+
+    @Override
     public int kick() {
         System.out.println(ANSI_PURPLE + "Терминатор: Бью кожанного ублюдка" + ANSI_RESET);
-        System.out.println(ANSI_RED + "Терминатор наносит 5 урона" + ANSI_RESET);
-        return 5;
+        System.out.println(ANSI_RED + String.format("Терминатор наносит %s урона", baseKickDamage) + ANSI_RESET);
+        return baseKickDamage;
     }
 
     @Override

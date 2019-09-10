@@ -1,5 +1,6 @@
 package Strategies;
 
+import Weapon.RangedWeapon;
 import interfaces.Humanoid;
 
 public class HumanStrategy implements Humanoid {
@@ -13,6 +14,8 @@ public class HumanStrategy implements Humanoid {
 
     private int aimDamage = 0;
     private int baseShootDamage = 2;
+    private String rangedWeaponName = "дробовик";
+    private RangedWeapon rangedWeapon;
 
     @Override
     public void walk(int x1, int y1, int x2, int y2) {
@@ -32,6 +35,22 @@ public class HumanStrategy implements Humanoid {
     @Override
     public void look() {
         System.out.println(ANSI_BLUE + "Сара Конор: Ищу безумного робота" + ANSI_RESET);
+    }
+
+    @Override
+    public void checkRangedWeapon() {
+        System.out.println(String.format(
+                ANSI_BLUE + "Сара Конор: Теперь я вооружена %s. Это оружие наносит: %s урона" + ANSI_RESET,
+                rangedWeapon.getName(),
+                rangedWeapon.getDamage()));
+    }
+
+    @Override
+    public void setRangedWeapon(RangedWeapon rangedWeapon) {
+        this.rangedWeapon = rangedWeapon;
+        baseShootDamage = rangedWeapon.getDamage();
+        rangedWeaponName = rangedWeapon.getName();
+        aimDamage = 0;
     }
 
     @Override
@@ -60,10 +79,10 @@ public class HumanStrategy implements Humanoid {
     @Override
     public int shoot() {
         int shootDamage = baseShootDamage + aimDamage;
-        System.out.println(ANSI_BLUE + "Сара Конор: Стреляю из дробовика" + ANSI_RESET);
+        System.out.println(ANSI_BLUE + String.format("Сара Конор: Стреляю из %s", rangedWeaponName) + ANSI_RESET);
         System.out.println(ANSI_RED + String.format("Сара Конор наносит %s урона", shootDamage)+ ANSI_RESET);
         aimDamage = 0;
-        return aimDamage;
+        return shootDamage;
     }
 
     @Override

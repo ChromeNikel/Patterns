@@ -1,34 +1,40 @@
 import Strategies.HumanStrategy;
 import Strategies.RobotStrategy;
+import Weapon.*;
 import classes.Context;
 import classes.RandomExplosion;
 import classes.RandomMethod;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class MainClass {
 
     public static void main(String [] args) throws IOException {
-//        Context humanContext = new Context();
-//        Context robotContext = new Context();
+
+//        RangedWeapon rangedWeapon0 = new Pistol();
+//        System.out.println(rangedWeapon0.getName() + " " + rangedWeapon0.getDamage());
 //
-////        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-////        String strategy = br.readLine();
-////        if(strategy.equals("Робот"))
-////            humanContex.setContextStrategy(new RobotStrategy());
-////
-////        if(strategy.equals("Человек"))
-////            humanContex.setContextStrategy(new HumanStrategy());
-//        humanContext.setContextStrategy(new RobotStrategy());
-//        robotContext.setContextStrategy(new HumanStrategy());
+//        RangedWeapon rangedWeapon2 = new Pistol();
+//        rangedWeapon2 = new ElectroDamge(rangedWeapon2);
+//        rangedWeapon2 = new Heavy(rangedWeapon2);
+//        System.out.println(rangedWeapon2.getName() + " " + rangedWeapon2.getDamage());
+//
+//        RangedWeapon rangedWeapon1 = new Rifle();
+//        rangedWeapon1 = new FireDamge(rangedWeapon1);
+//        rangedWeapon1 = new Assault(rangedWeapon1);
+//        System.out.println(rangedWeapon1.getName() + " " + rangedWeapon1.getDamage());
+//
+//        RangedWeapon rangedWeapon3 = new Cannon();
+//        rangedWeapon3 = new ElectroDamge(rangedWeapon3);
+//        rangedWeapon3 = new Rapid(rangedWeapon3);
+//        System.out.println(rangedWeapon3.getName() + " " + rangedWeapon3.getDamage());
 
-            Context humanContext = new Context();
-            Context robotContext = new Context();
+        Context humanContext = new Context();
+        Context robotContext = new Context();
 
-            humanContext.setContextStrategy(new RobotStrategy());
-            robotContext.setContextStrategy(new HumanStrategy());
+        humanContext.setContextStrategy(new HumanStrategy());
+        robotContext.setContextStrategy(new RobotStrategy());
+
             RandomExplosion randomExplosion = new RandomExplosion();
             randomExplosion.registerObserver(humanContext);
             randomExplosion.registerObserver(robotContext);

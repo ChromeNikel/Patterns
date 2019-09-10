@@ -1,5 +1,6 @@
 package classes;
 
+import Weapon.RangedWeapon;
 import interfaces.Humanoid;
 import interfaces.Observer;
 import interfaces.Subject;
@@ -30,6 +31,16 @@ public class Context implements Humanoid, Observer {
 
     public void look() {
         contextStrategy.look();
+    }
+
+    @Override
+    public void checkRangedWeapon() {
+        contextStrategy.checkRangedWeapon();
+    }
+
+    @Override
+    public void setRangedWeapon(RangedWeapon rangedWeapon) {
+        contextStrategy.setRangedWeapon(rangedWeapon);
     }
 
     public int kick() {
