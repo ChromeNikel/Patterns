@@ -5,7 +5,7 @@ import interfaces.Humanoid;
 
 public class RobotStrategy implements Humanoid {
 
-    private int hp = 30;
+    private int hp = 41;
 
     private int aimDamage = 0;
     private int baseShootDamage = 5;

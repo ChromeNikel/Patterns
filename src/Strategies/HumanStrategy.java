@@ -10,7 +10,7 @@ public class HumanStrategy implements Humanoid {
     private static final String ANSI_RESET = "\u001B[0m";
     private static final String ANSI_GREEN = "\u001B[32m";
 
-    private int hp = 20;
+    private int hp = 21;
 
     private int aimDamage = 0;
     private int baseShootDamage = 2;

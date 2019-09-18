@@ -1,5 +1,7 @@
 package classes;
 
+import Environment.EventGenerator;
+import Environment.HumanEventFactory;
 import Weapon.*;
 
 public class RandomMethod {
@@ -12,7 +14,7 @@ public class RandomMethod {
     }
 
     public static void getRandoomMethod(Context activeContext, Context passiveContext) {
-        switch (getRandomIndex(10)) {
+        switch (getRandomIndex(11)) {
             case 0:
                 passiveContext.decreaseHp(activeContext.kick());
                 break;
@@ -43,6 +45,9 @@ public class RandomMethod {
             case 9:
                 passiveContext.setRangedWeapon(getRandomWeapon());
                 passiveContext.checkRangedWeapon();
+                break;
+            case 10:
+                passiveContext.decreaseHp(new EventGenerator(passiveContext).generateEvent());
         }
     }
 
