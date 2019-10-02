@@ -40,6 +40,22 @@ public class Main {
                     arrow = new DownArrow(map);
                     command = new DownArrowCommand(arrow, userString);
                     break;
+                case "ВлевоВверх":
+                    arrow = new LeftUpAdapter(new Diagonal(), map);
+                    command = new UpArrowCommand(arrow, userString);
+                    break;
+                case "ВлевоВниз":
+                    arrow = new LeftDownAdapter(new Diagonal(), map);
+                    command = new DownArrowCommand(arrow, userString);
+                    break;
+                case "ВправоВверх":
+                    arrow = new RightUpAdapter(new Diagonal(), map);
+                    command = new UpArrowCommand(arrow, userString);
+                    break;
+                case "ВправоВниз":
+                    arrow = new RightDownAdapter(new Diagonal(), map);
+                    command = new DownArrowCommand(arrow, userString);
+                    break;
                 default:
                     arrow = new ErrorArrow();
                     command = new RightArrowCommand(arrow, userString);
